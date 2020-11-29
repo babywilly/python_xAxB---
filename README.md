@@ -9,9 +9,19 @@ b=0
 for i in range(4):
     lucky+=str(number[i])
 while(True):
-    guessnumber=input('請輸入4個不同的數字: ')
-    if not guessnumber.isdigit():   #判斷輸入是否為4位數字
-        pass
+    guessnumber=input("請輸入4個不同的數字: ")
+    if len(guessnumber)!=len(lucky):
+        print("號碼個數要有4位")
+        continue
+    p=0
+    for i in range(len(guessnumber)):                 #檢測是否輸入重複的號碼
+        for j in range(i):
+            if guessnumber[j]==guessnumber[i]:
+                print("請勿輸入重複號碼")
+                p=1
+                break
+        if p==1:
+            break
     else:
         if guessnumber==lucky:
             print('恭喜你答對')
